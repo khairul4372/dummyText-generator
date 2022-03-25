@@ -10,30 +10,26 @@ const dummyText = [
   'Powder cake croissant tootsie roll tart lollipop jelly beans. Cake lemon drops wafer muffin biscuit marshmallow brownie. Cotton candy jelly-o cotton candy gummies. Cake sesame snaps macaroon tootsie roll. Pie wafer topping tootsie roll apple pie marzipan sweet. Bonbon tootsie roll candy canes pastry brownie bear claw.',
 ];
 
-// selecting elements
-const form = document.querySelector('#form');
-const amount = document.querySelector('#amount');
-const result = document.querySelector('#result');
 
-// event listener
-form.addEventListener('submit', function (e) {
-  e.preventDefault();
 
-  const value = parseInt(amount.value);
-  const random = Math.floor(Math.random() * dummyText.length);
+const result = document.querySelector('article')
 
-  // for empty, negatigve and greater than 9
-  if (isNaN(value) || value <= 0 || value > 9) {
-    result.innerHTML = `<p>${dummyText[random]}</p>`;
-  } else {
-    const slicedArray = dummyText.slice(0, value);
-    const finalArray = slicedArray
-      .map(function (singleDummy) {
-        return `<p>${singleDummy}</p>`;
-      })
-      .join('');
+const generate = document.querySelector('button')
+generate.addEventListener('click', function(e){
+  /* const range = document.getElementById('range').value
+  const rangeTitle = document.querySelector('span')
+  rangeTitle.innerText = range */
 
-    // displaying final dummy text
-    result.innerHTML = finalArray;
+  e.preventDefault()
+  
+  const number = document.getElementById('amount').value
+  var text = ''
+  for (var i=0; i<number; i++){
+    text = text + '<br/><br/>' + dummyText[i] 
+    
   }
-});
+  
+    result.innerHTML = text
+
+})
+
